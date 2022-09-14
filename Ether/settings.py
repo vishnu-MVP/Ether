@@ -44,6 +44,8 @@ INSTALLED_APPS = [
    
     'category',
     'accounts',
+    'store',
+    'cart',
     
 ]
 
@@ -70,6 +72,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'category.context_processors.menu_links'
             ],
         },
     },
@@ -132,7 +135,8 @@ STATICFILES_DIRS=[
        'Ether/static',
 ]
 
-
+MEDIA_URL='/media/'
+MEDIA_ROOT=BASE_DIR/'media'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
