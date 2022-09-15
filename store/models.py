@@ -1,3 +1,4 @@
+from http.client import HTTPResponse
 import imp
 from tkinter import CASCADE
 from unicodedata import category
@@ -29,3 +30,6 @@ class Product(models.Model):
 
     def __str__(self):
         return self.product_name
+
+    def search(self):
+        return HTTPResponse('search page')
