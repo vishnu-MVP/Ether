@@ -13,6 +13,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 from pathlib import Path
+from telnetlib import AUTHENTICATION
 
 
 
@@ -41,11 +42,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
    
     'category',
     'accounts',
     'store',
     'cart',
+    'orders',
     
 ]
 
@@ -77,6 +80,8 @@ TEMPLATES = [
         },
     },
 ]
+
+
 
 WSGI_APPLICATION = 'Ether.wsgi.application'
 
@@ -141,3 +146,20 @@ MEDIA_ROOT=BASE_DIR/'media'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+SITE_ID=1
+from django.contrib.messages import constants as messages
+MESSAGE_TAGS = {
+    messages.ERROR: 'danger',
+}
+
+
+# SMTP configuration
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'mathivishnu38@gmail.com'
+EMAIL_HOST_PASSWORD = 'nmdkdsyicwykhriy'
+EMAIL_USE_TLS = True
+
+RAZORPAY_API_KEY='rzp_test_wEVKJR9BWgZ9kt'
+RAZORPAY_API_SECRET_KEY='cPblI4tvLnNogOhVUIafe9SG'
+

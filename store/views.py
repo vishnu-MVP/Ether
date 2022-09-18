@@ -12,14 +12,14 @@ def store(request, category_slug=None):
 
     if(category_slug!=None):
         categories=get_object_or_404(category,slug=category_slug)
-        products  =Product.objects.filter(Category=categories,is_available=True)
-        paginator=Paginator(products,1)
+        products  =Product.objects.filter(category=categories,is_available=True)
+        paginator=Paginator(products,10)
         page= request.GET.get('page')
         paged_products=paginator.get_page(page)
         product_count=products.count()
     else :
         products = Product.objects.all().filter(is_available=True)
-        paginator=Paginator(products,1)
+        paginator=Paginator(products,10)
         page= request.GET.get('page')
         paged_products=paginator.get_page(page)
         product_count=products.count()
@@ -32,7 +32,7 @@ def store(request, category_slug=None):
 
 def product_detail(request,category_slug,product_slug):
     try:
-        single_product=Product.objects.get(Category__slug=category_slug,slug=product_slug)
+        single_product=Product.objects.get(category__slug=category_slug,slug=product_slug)
     except Exception as e:
         raise e
 

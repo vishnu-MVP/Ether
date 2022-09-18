@@ -1,35 +1,67 @@
-from http.client import HTTPResponse
-import imp
-from tkinter import CASCADE
-from unicodedata import category
 from django.db import models
 from category.models import category
 from django.urls import reverse
+from accounts.models import Account
+from django.db.models import Avg, Count
 
 # Create your models here.
 
-
 class Product(models.Model):
-    product_Id=models.IntegerField(unique=True)
-    product_name=models.CharField(max_length=50, unique=True)
-    slug        = models.SlugField(max_length=50, unique=True)
-    description = models.CharField(max_length=500, blank=False)
-    price       = models.IntegerField()
-    del_price   = models.IntegerField(default=0)
-    images      = models.ImageField(upload_to='photos/products',default=0)
-    stock       = models.IntegerField()
-    is_available = models.BooleanField(default=True)
-    Category     = models.ForeignKey(category, on_delete=models.CASCADE)
-    created_date=models.DateTimeField(auto_now_add=True)
-    modified_date=models.DateTimeField(auto_now=True)
-    
+    product_name    = models.CharField(max_length=200, unique=True)
+    product_Id      =models.IntegerField(default=0)
+    slug            = models.SlugField(max_length=200, unique=True)
+    description     = models.TextField(max_length=500, blank=True)
+    price           = models.IntegerField()
+    del_price       = models.IntegerField(default=0)
+    images          = models.ImageField(upload_to='photos/products')
+    stock           = models.IntegerField()
+    is_available    = models.BooleanField(default=True)
+    category        = models.ForeignKey(category, on_delete=models.CASCADE)
+    created_date    = models.DateTimeField(auto_now_add=True)
+    modified_date   = models.DateTimeField(auto_now=True)
+
     def get_url(self):
-        return reverse('product_detail',args=[self.Category.slug,self.slug])
-
-
+        return reverse('product_detail', args=[self.category.slug, self.slug])
 
     def __str__(self):
         return self.product_name
 
-    def search(self):
-        return HTTPResponse('search page')
+    '''def averageReview(self):
+        reviews = ReviewRating.objects.filter(product=self, status=True).aggregate(average=Avg('rating'))
+        avg = 0
+        if reviews['average'] is not None:
+            avg = float(reviews['average'])
+        return avg
+
+    def countReview(self):
+        reviews = ReviewRating.objects.filter(product=self, status=True).aggregate(count=Count('id'))
+        count = 0
+        if reviews['count'] is not None:
+            count = int(reviews['count'])
+        return count'''
+
+class VariationManager(models.Manager):
+    def colors(self):
+        return super(VariationManager, self).filter(variation_category='color', is_active=True)
+
+    def sizes(self):
+        return super(VariationManager, self).filter(variation_category='size', is_active=True)
+
+variation_category_choice = (
+    ('color', 'color'),
+    ('size', 'size'),
+)
+
+class Variation(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    variation_category = models.CharField(max_length=100, choices=variation_category_choice)
+    variation_value     = models.CharField(max_length=100)
+    is_active           = models.BooleanField(default=True)
+    created_date        = models.DateTimeField(auto_now=True)
+
+    objects = VariationManager()
+
+    def __str__(self):
+        return self.variation_value
+
+
