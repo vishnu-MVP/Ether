@@ -8,6 +8,7 @@ django = "*"
 pillow = "*"
 django-allauth = "*"
 razorpay = "*"
+django-admin-thumbnails = "*"
 
 [dev-packages]
 

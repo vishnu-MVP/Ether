@@ -8,14 +8,14 @@ from store.models import Product
 
 class Payment(models.Model):
     user = models.ForeignKey(Account, on_delete=models.CASCADE)
-    payment_id = models.CharField(max_length=100)
+   # payment_id = models.CharField(max_length=100, blank=True)
     payment_method = models.CharField(max_length=100)
     amount_paid = models.CharField(max_length=100) # this is the total amount paid
-    status = models.CharField(max_length=100)
+   # status = models.CharField(max_length=100,blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.payment_id
+        return str(self.user)
 
 
 class Order(models.Model):
@@ -55,7 +55,7 @@ class Order(models.Model):
         return f'{self.address_line_1} {self.address_line_2}'
 
     def __str__(self):
-        return self.first_name
+        return str(self.first_name)
 
 
 class OrderProduct(models.Model):
@@ -71,4 +71,4 @@ class OrderProduct(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.product
+        return str(self.product)
