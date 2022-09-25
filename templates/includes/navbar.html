@@ -1,12 +1,19 @@
-{% load static %}
 
+{% load static %}
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="cache-control" content="max-age=604800" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <header class="section-header">
 <nav class="navbar p-md-0 navbar-expand-sm navbar-light border-bottom">
 <div class="container">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTop4" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
- 
+   <!-- navbar-collapse .// -->
 </div> <!-- container //  -->
 </nav>
 
@@ -15,7 +22,7 @@
 <div class="row align-items-center">
   <div class="col-lg-2 col-md-3 col-6">
     <a href="{% url 'home' %}" class="brand-wrap">
-      <img class="logo" src="{% static './images/new_logo.png' %}">
+      <img class="logo" src="{% static './images/logo.png' %}">
     </a> <!-- brand-wrap.// -->
   </div>
   <div class="col-lg col-sm col-md col-6 flex-grow-0">
@@ -73,4 +80,9 @@
 </div> <!-- row.// -->
   </div> <!-- container.// -->
 </section> <!-- header-main .// -->
-    
+
+
+
+
+</header> <!-- section-header.// -->
+</head>

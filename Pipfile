@@ -9,6 +9,9 @@ pillow = "*"
 django-allauth = "*"
 razorpay = "*"
 django-admin-thumbnails = "*"
+python-decouple = "*"
+django-admin-honeypot = "*"
+django-session-timeout = "*"
 
 [dev-packages]
 
