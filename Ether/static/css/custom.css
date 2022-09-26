@@ -59,3 +59,30 @@
     height: 80px;
     border: 1px solid grey;
   }
+footer{
+  position:relative;
+  /* border-top: 1px solid #e4e4e4 !important; */
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+.discount{
+  font-size: 26px;
+  color: #d81159;
+
+}
+.nice-flex{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.discount-big{
+  font-size: 32px;
+  color: #d81159;
+  /* align-items: flex-start; */
+}
+.flex-product{
+  display: flex;
+  gap: 10px;
+  align-items: flex-end;
+}
