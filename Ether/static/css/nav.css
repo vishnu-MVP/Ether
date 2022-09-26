@@ -1,0 +1,175 @@
+:root {
+    /* --secondaryColor: #2dd881; */
+    /* --secondaryColor: #D81159; */
+    --primaryColor: #d81159;
+    /* --primaryColor: #2dd881; */
+}
+
+a:hover {
+    color: var(--primaryColor);
+}
+
+a {
+    text-decoration: none;
+}
+
+.widget-header a:hover {
+    color: var(--primaryColor);
+}
+
+.cart:hover {
+    color: var(--primaryColor);
+}
+
+.cart {
+    color: #adadad;
+    margin-left: 20px;
+}
+
+.nav-holder {
+    height: 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-toggler {
+    display: none;
+}
+
+.nav-container {
+    padding: 0 48px;
+}
+
+.btn {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.btn-back-green {
+    background-color: var(--primaryColor);
+    border: 1px solid var(--primaryColor);
+    padding: 10px 16px;
+    color: #fff;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: all ease-in-out 0.3s;
+}
+
+.user>a {
+    color: #d8d8d8;
+}
+
+.dropdown-menu {
+    display: none;
+}
+
+.input-group {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+    outline: none;
+}
+
+.dropdown-menu.active {
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    background-color: #fff;
+}
+
+.navsearch {
+    width: 500px;
+}
+
+.form-control {
+    width: 100%;
+    height: 36px;
+    padding: 0 16px;
+    border: 1px solid #d8d8d8;
+    /* color: #d8d8d8; */
+    font-size: 16px;
+    /* border-radius: 15px; */
+
+}
+
+.btn-search {
+    height: 100%;
+    font-size: 16px;
+    background-color: var(--primaryColor);
+    border: 1px solid var(--primaryColor);
+    padding: 0 10px;
+    color: #fff;
+    border-radius: 0 5px 5px 0
+}
+
+.btn-search:hover {
+    background-color: #fff;
+    color: var(--primaryColor);
+    transition: all ease-in-out 0.3s;
+
+}
+
+input {
+    outline: none;
+}
+
+.items {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.main-nav {
+    border-bottom: 1px solid #d8d8d8;
+}
+
+/* Dropdown Button */
+/* .btn-back-green {
+    background-color: #04AA6D;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+  } */
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f8f8f8;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .btn-back-green {
+    background-color: #fff;
+    color: var(--primaryColor);
+}

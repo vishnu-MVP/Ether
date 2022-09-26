@@ -1,4 +1,3 @@
-
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
@@ -111,75 +110,80 @@
 	</aside> 
 
     </header> section-header.// -->
-	<main class="col-md-9">
-    
+<main class="col-md-9">
+	<header class="border-bottom mb-4 pb-3">
+		<div class="form-inline">
+			<span class="mr-md-auto">found <b>{{product_count}}</b> products</span>
+
+		</div>
+	</header><!-- sect-heading -->
+
+	<div class="row">
+		{% for product in products %}
+		<div class="col-md-4">
+			<figure class="card card-product-grid">
+				<div class="img-wrap">
+					<a href="{{product.get_url}}">
+						<img src="{{product.images.url}}">
+					</a>
+
+				</div>
+				<figcaption class="info-wrap">
+					<div class="fix-height">
+						<a href="{{product.get_url}}" class="title">{{product.product_name}}</a>
+						<div class="price-wrap mt-2">
+							<span class="price">&#8377 {{product.price}}</span>
+							<del class="price-old">&#8377 {{product.del_price}}</del>
+						</div>
+						<div class="rating-star">
+							<span>
+								<i class="fa fa-star{% if product.averageReview < 0.5 %}-o{% elif product.averageReview >= 0.5 and product.averageReview < 1 %}-half-o {% endif %}" aria-hidden="true"></i>
+								<i class="fa fa-star{% if product.averageReview < 1.5 %}-o{% elif product.averageReview >= 1.5 and product.averageReview < 2 %}-half-o {% endif %}" aria-hidden="true"></i>
+								<i class="fa fa-star{% if product.averageReview < 2.5 %}-o{% elif product.averageReview >= 2.5 and product.averageReview < 3 %}-half-o {% endif %}" aria-hidden="true"></i>
+								<i class="fa fa-star{% if product.averageReview < 3.5 %}-o{% elif product.averageReview >= 3.5 and product.averageReview < 4 %}-half-o {% endif %}" aria-hidden="true"></i>
+								<i class="fa fa-star{% if product.averageReview < 4.5 %}-o{% elif product.averageReview >= 4.5 and product.averageReview < 5 %}-half-o {% endif %}" aria-hidden="true"></i>
+								</span>
+						</div>
+
+					</div>
+				</figcaption>
+			</figure>
+		</div>
+		{% endfor %}
+
+	</div>
+	</div>
 
 
-      
-    <header class="border-bottom mb-4 pb-3">
-        <div class="form-inline">
-            <span class="mr-md-auto">found <b>{{product_count}}</b> products</span>
-            
-        </div>
-</header><!-- sect-heading -->
+	<nav class="mt-4" aria-label="Page navigation sample">
+		{% if products.has_other_pages %}
 
-<div class="row">
-    {% for product in products %}
-    <div class="col-md-4">
-        <figure class="card card-product-grid">
-            <div class="img-wrap"> 
-                <a href="{{product.get_url}}">
-                <img src="{{product.images.url}}">
-			</a>
-                
-            </div> <!-- img-wrap.// -->
-            <figcaption class="info-wrap">
-                <div class="fix-height">
-                    <a href="" class="title">{{product.product_name}}</a>
-                    <div class="price-wrap mt-2">
-                        <span class="price">&#8377 {{product.price}}</span>
-                        <del class="price-old">&#8377 {{product.del_price}}</del>
-                    </div> <!-- price-wrap.// -->
-                </div>
-              <!--  <a href="#" class="btn btn-block btn-primary">Add to cart </a> -->
-            </figcaption>		
-        </figure>
-    </div> <!-- col.// -->
-        {% endfor %}
-   
-</div><!-- col.// -->
-</div> <!-- row end.// -->
+		<ul class="pagination">
+			{% if products.has_previous %}
+			<li class="page-item"><a class="page-link" href="#">Previous</a></li>
+			{% else %}
+			<li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+			{% endif %}
 
+			{% for i in products.paginator.page_range %}
+			{% if products.number == i %}
+			<li class="page-item active"><a class="page-link" href="#">{{i}}</a></li>
+			{% else %}
+			<li class="page-item active"><a class="page-link" href="?page={{i}}">{{i}}</a></li>
+			{% endif %}
 
-<nav class="mt-4" aria-label="Page navigation sample">
-{% if products.has_other_pages %}
+			{% endfor %}
+			{% if products.has_next %}
+			<li class="page-item"><a class="page-link" href="{{products.next_page_number}}">Next</a></li>
+			{% else %}
+			<li class="page-item disabled"><a class="page-link" href="#">Next</a></li>
+			{% endif %}
 
-  <ul class="pagination">
-	{% if products.has_previous %}
-    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-	{% else %}
-    <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
-     {% endif %}
+		</ul>
+		{% endif %}
+	</nav>
 
-	 {% for i in products.paginator.page_range %}
-	 {% if products.number == i %}
-    <li class="page-item active"><a class="page-link" href="#">{{i}}</a></li>
-	{% else %}
-    <li class="page-item active"><a class="page-link" href="?page={{i}}">{{i}}</a></li>
-	{% endif %}
-
-	{% endfor %}
-	{% if products.has_next %}
-    <li class="page-item"><a class="page-link" href="{{products.next_page_number}}">Next</a></li>
-	{% else %}
-    <li class="page-item disabled"><a class="page-link" href="#">Next</a></li>
-     {% endif %}
-    
-  </ul>
-  {% endif %}
-</nav>
-
-	</main> <!-- col.// -->
+</main> <!-- col.// -->
 
 </div>
 

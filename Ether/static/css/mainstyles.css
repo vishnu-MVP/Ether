@@ -1,22 +1,39 @@
-.subVer > a, .subHor>a{
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.subVer>a,
+.subHor>a {
     text-decoration: none;
     color: #fff;
     text-transform: uppercase;
 }
-.subVer > a:hover, .subHor>a:hover{
+
+.subVer>a:hover,
+.subHor>a:hover {
     color: #fff;
 }
+
 p {
     margin-block-start: 0;
 }
-.homeContainer{
+
+.homeContainer {
     color: #fff;
+    max-width: 100%;
 }
+
 .mainGrid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
-    padding: 2rem 4rem 1rem;
+    margin : 2rem;
 }
 
 .subVer {
@@ -34,8 +51,8 @@ p {
 }
 
 .homeRow {
-    /* padding: 10px ; */
-    height: 100%;
+    padding: 5px 10px ;
+    /* height: 100%; */
     border-radius: 25px;
     display: flex;
     cursor: pointer;
@@ -50,7 +67,7 @@ p {
     justify-content: space-evenly;
     border-radius: 25px;
     display: flex;
-    height: 100%;
+    /* height: 100%; */
     flex-direction: column;
     box-shadow: 6px 6px 5px 1px rgba(0, 0, 0, 0.25);
     align-items: center;
@@ -121,8 +138,16 @@ p {
     background-color: #D81159;
 }
 
-@media (max-width: 1280px) {
+#design {
+    position: relative;
+    max-width: 100%;
+    height: 100%;
+}
+#discount{
+    max-width: 70%;
+}
 
+@media (max-width: 1280px) {
     .thinMedium {
         font-size: 1.75rem;
     }
@@ -134,13 +159,8 @@ p {
     .boldMedium {
         font-size: 2rem;
     }
-
-    .homeRow {
-        padding: 0 20px;
-    }
-
-    .homeCol {
-        padding: 12px 16px;
+    #shoe{
+        max-width: 90%;
     }
 }
 
@@ -150,7 +170,18 @@ p {
         font-size: 2rem;
         font-weight: 700;
     }
-
+    #discount{
+        max-width: 60%;
+    }
+    #uniform{
+        max-width: 50%;
+    }
+    #men{
+        max-width: 70%;
+    }
+    #women{
+        max-width: 60%;
+    }
     .boldMedium {
         font-size: 2rem;
     }
@@ -158,17 +189,23 @@ p {
     .lightHuge {
         font-size: 2.25rem;
     }
-
-    .homeCol {
+    #shoe{
+        max-width: 70%;
+    }
+    /* .homeCol {
         padding: 0;
         padding-top: 16px;
-    }
+    } */
 }
-
 @media (max-width: 940px) {
-    .mainGrid {
-        grid-template-columns: 1fr;
+    #shoe{
+        padding: 20px ;
+        max-width: 100%;
     }
+    .mainGrid {
+        grid-template-columns: 100%;
+    }
+
     .thinMedium {
         font-size: 1.5rem;
     }
@@ -176,7 +213,7 @@ p {
     .boldMedium {
         font-size: 1.75rem;
     }
-
+    
     .lightHuge {
         font-size: 3rem;
     }
@@ -201,12 +238,11 @@ p {
 }
 
 @media (max-width: 610px) {
-    .homeCol {
-        padding: 5px 10px;
+    #stationary{
+        max-width: 50%;
     }
-
     .thinMedium {
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
 
     .boldMedium {
@@ -215,5 +251,48 @@ p {
 
     .lightHuge {
         font-size: 2rem;
+    }
+}
+
+@media (max-width: 450px) {
+    #men{
+        max-width: 50%;
+    }
+    #women{
+        max-width: 50%;
+    }
+    .thinMedium{
+        font-size: 1rem;
+    }
+    .boldMedium{
+        font-size: 1rem;
+    }
+    .lightHuge {
+        font-size: 1.25rem;
+    }
+    .homeCol{
+        border-radius: 10px;
+    }
+    .homeRow{
+        border-radius: 10px;
+    }
+}
+@media (max-width: 390px) {
+    .full-space{
+        font-size: 1rem !important;
+    }
+    .thinMedium{
+        font-size: 0.75rem;
+    }   
+    .boldMedium{
+        font-size: 0.75rem;
+    }
+}
+@media (max-width: 350px) {
+    .thinMedium{
+        font-size: 0.5rem;
+    }   
+    .boldMedium{
+        font-size: 0.65rem;
     }
 }
