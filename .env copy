@@ -1,9 +1,0 @@
-SECRET_KEY =django-insecure-5$&nrwagpd644jpzk+dhheo!c@esr*+$0dqpe*mv%t_z0qe(k+
-DEBUG = True
-EMAIL_HOST = smtp.gmail.com
-EMAIL_PORT = 587
-EMAIL_HOST_USER = mathivishnu38@gmail.com
-EMAIL_HOST_PASSWORD =nmdkdsyicwykhriy
-EMAIL_USE_TLS = True
-RAZORPAY_API_KEY=rzp_test_wEVKJR9BWgZ9kt
-RAZORPAY_API_SECRET_KEY=cPblI4tvLnNogOhVUIafe9SG

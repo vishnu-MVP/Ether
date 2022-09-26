@@ -1,0 +1,300 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}
+a:hover{
+    color: #D81159;
+}
+.subVer>a,
+.subHor>a {
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.subVer>a:hover,
+.subHor>a:hover {
+    color: #fff;
+}
+
+p {
+    margin-block-start: 0;
+}
+
+.homeContainer {
+    color: #fff;
+    max-width: 100%;
+}
+
+.mainGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin : 2rem;
+}
+
+.subVer {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    width: 100%;
+    gap: 2rem;
+}
+
+.subHor {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    height: 100%;
+}
+
+.homeRow {
+    padding: 5px 10px ;
+    /* height: 100%; */
+    border-radius: 25px;
+    display: flex;
+    cursor: pointer;
+    box-shadow: 6px 6px 5px 1px rgba(0, 0, 0, 0.25);
+    align-items: center;
+    transition: all ease 0.5s;
+    justify-content: space-around;
+}
+
+.homeCol {
+    padding: 10px 5px;
+    justify-content: space-evenly;
+    border-radius: 25px;
+    display: flex;
+    /* height: 100%; */
+    flex-direction: column;
+    box-shadow: 6px 6px 5px 1px rgba(0, 0, 0, 0.25);
+    align-items: center;
+    justify-content: space-evenly;
+    cursor: pointer;
+    transition: all ease 0.5s;
+}
+
+.homeRow:hover,
+.homeCol:hover {
+    box-shadow: none;
+
+}
+
+/* Fonts */
+.thinMedium {
+    font-size: 2.25rem;
+    text-align: center;
+    letter-spacing: 1.5px;
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.boldMedium {
+    font-weight: 700;
+    letter-spacing: 3px;
+    font-size: 2.25rem;
+}
+
+.lightHuge {
+    margin-block-start: 0;
+    letter-spacing: 2px;
+    font-weight: 100;
+    font-size: 3rem;
+}
+
+#blue {
+    background-color: #2AB7CA;
+}
+
+#purple {
+    background-color: #9448BC;
+}
+
+#orange {
+    background-color: #FF7F11;
+}
+
+#pink {
+    background-color: #FB62F6;
+}
+
+#menBlue {
+    background-color: #645DD7;
+}
+
+#red {
+    background-color: #BD1E1E;
+}
+
+#green {
+    background-color: #2DD881;
+}
+
+#darkPink {
+    background-color: #D81159;
+}
+
+#design {
+    position: relative;
+    max-width: 100%;
+    height: 100%;
+}
+#discount{
+    max-width: 70%;
+}
+
+@media (max-width: 1280px) {
+    .thinMedium {
+        font-size: 1.75rem;
+    }
+
+    .bold {
+        font-weight: 700;
+    }
+
+    .boldMedium {
+        font-size: 2rem;
+    }
+    #shoe{
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 1024px) {
+
+    .bold {
+        font-size: 2rem;
+        font-weight: 700;
+    }
+    #discount{
+        max-width: 60%;
+    }
+    #uniform{
+        max-width: 50%;
+    }
+    #men{
+        max-width: 70%;
+    }
+    #women{
+        max-width: 60%;
+    }
+    .boldMedium {
+        font-size: 2rem;
+    }
+
+    .lightHuge {
+        font-size: 2.25rem;
+    }
+    #shoe{
+        max-width: 70%;
+    }
+    /* .homeCol {
+        padding: 0;
+        padding-top: 16px;
+    } */
+}
+@media (max-width: 940px) {
+    #shoe{
+        padding: 20px ;
+        max-width: 100%;
+    }
+    .mainGrid {
+        grid-template-columns: 100%;
+    }
+
+    .thinMedium {
+        font-size: 1.5rem;
+    }
+
+    .boldMedium {
+        font-size: 1.75rem;
+    }
+    
+    .lightHuge {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .thinMedium {
+        font-size: 1.75rem;
+    }
+
+    .boldMedium {
+        font-size: 2rem;
+    }
+
+    .lightHuge {
+        font-size: 4rem;
+    }
+
+    .homeCol {
+        padding: 16px 20px;
+    }
+}
+
+@media (max-width: 610px) {
+    #stationary{
+        max-width: 50%;
+    }
+    .thinMedium {
+        font-size: 1.5rem;
+    }
+
+    .boldMedium {
+        font-size: 1.75rem;
+    }
+
+    .lightHuge {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 450px) {
+    #men{
+        max-width: 50%;
+    }
+    #women{
+        max-width: 50%;
+    }
+    .thinMedium{
+        font-size: 1rem;
+    }
+    .boldMedium{
+        font-size: 1rem;
+    }
+    .lightHuge {
+        font-size: 1.25rem;
+    }
+    .homeCol{
+        border-radius: 10px;
+    }
+    .homeRow{
+        border-radius: 10px;
+    }
+}
+@media (max-width: 390px) {
+    .full-space{
+        font-size: 1rem !important;
+    }
+    .thinMedium{
+        font-size: 0.75rem;
+    }   
+    .boldMedium{
+        font-size: 0.75rem;
+    }
+}
+@media (max-width: 350px) {
+    .thinMedium{
+        font-size: 0.5rem;
+    }   
+    .boldMedium{
+        font-size: 0.65rem;
+    }
+}
