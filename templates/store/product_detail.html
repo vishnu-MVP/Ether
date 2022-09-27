@@ -107,7 +107,7 @@
 
 
 							<div class="flex-product">
-								<div class="discount-big">-50%</div>
+								<div class="discount-big">-{{ discount }} %</div>
 								<var class="price h4">&#8377 {{single_product.price}}</var>
 								<del class="price-old">&#8377 {{single_product.del_price}}</del>
 							</div>
@@ -220,7 +220,7 @@
 
 						<div class="text">
 							<span class="date text-muted float-md-right">{{review.updated_at}} </span>
-							<h6 class="mb-1">{{review.user.full_name}} </h6>
+							<h5 class="mb-1">{{review.user.first_name}} </h5>
 							<div class="rating-star">
 								<span>
 									<i class="fa fa-star{% if review.rating == 0.5 %}-half-o{% elif review.rating < 1 %}-o {% endif %}" aria-hidden="true"></i>

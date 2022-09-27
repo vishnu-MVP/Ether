@@ -13,6 +13,7 @@ from django.contrib import messages
 from orders.models import OrderProduct
 
 def store(request, category_slug=None):
+
     categories= None
     products   = None
 
@@ -29,10 +30,11 @@ def store(request, category_slug=None):
         page= request.GET.get('page')
         paged_products=paginator.get_page(page)
         product_count=products.count()
-
+    
     context ={
         'products' : paged_products,
         'product_count':product_count,
+       
     }
     return render(request ,'store/store.html',context)
 
@@ -53,14 +55,16 @@ def product_detail(request,category_slug,product_slug):
     # Get the reviews
     reviews = ReviewRating.objects.filter(product_id=single_product.id, status=True)
     product_gallery = ProductGallery.objects.filter(product_id=single_product.id)
-
+    discount=int(((single_product.del_price - single_product.price)/single_product.del_price)*100)
     context = {
         'single_product': single_product,
         'in_cart'       : in_cart,
         'orderproduct': orderproduct,
         'reviews': reviews,
          'product_gallery': product_gallery,
+         'discount' : discount,
     }
+  
     return render(request, 'store/product_detail.html', context)
 
 

@@ -11,15 +11,16 @@ class Product(models.Model):
     product_Id      =models.IntegerField(default=0)
     slug            = models.SlugField(max_length=200, unique=True)
     description     = models.TextField(max_length=500, blank=True)
-    price           = models.IntegerField()
-    del_price       = models.IntegerField(default=0)
+    price           = models.IntegerField(default =1)
+    del_price       = models.IntegerField(default=1)
     images          = models.ImageField(upload_to='photos/products')
     stock           = models.IntegerField()
     is_available    = models.BooleanField(default=True)
     category        = models.ForeignKey(category, on_delete=models.CASCADE)
     created_date    = models.DateTimeField(auto_now_add=True)
     modified_date   = models.DateTimeField(auto_now=True)
-
+    def discount(self):
+        return int(((self.del_price-self.price)/self.del_price)*100)
     def get_url(self):
         return reverse('product_detail', args=[self.category.slug, self.slug])
 

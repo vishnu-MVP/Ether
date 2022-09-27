@@ -6,66 +6,82 @@
 	<main>
 		<div class="mainGrid">
 			<div class="subVer">
-				<Link href="/products">
+				<a href="store/">
 					<div class="homeRow" id="blue">
 						<p class="thinMedium" style="text-align:left">
-							GET UP TO<br /><span class="bold">50%</span><br />DISCOUNT
+							Products upto <br /><span class="bold">50%</span><br />DISCOUNT
 						</p>
 						<img id="discount" src="{%static 'illustrations/discount.svg'%}" alt='Discount-Illustration' />
 					</div>
-				</Link>
-				<Link href="/products">
+				</a>
+				<a href="store/category/uniforms/">
 					<div class="homeRow" id="purple">
 						<img id="uniform" alt="uniforms illustration" src="{%static 'illustrations/people.svg'%}" />
 						<p class=" full-space boldMedium">Uniforms</p>
 					</div>
-				</Link>
+				</a>
 			</div>
 			<div class="subHor">
-				<Link href="/products">
+				<a href="store/category/shoes/">
 					<div class="homeCol" id="orange">
 						<img id="shoe" alt='Shoes sale' src="{%static 'illustrations/shoes.svg'%}"  />
 						<p class="boldMedium">Shoes</p>
 					</div>
-				</Link>
-				<Link href="/products">
-
+				</a>
+				<a href="store/category/trending/">
 					<div class="homeCol" id="green">
 						<p style="text-align: center;" class="boldMedium">TRENDING🔥</p>
+					
+					<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+						<div class="carousel-inner">
+							
+							
+						 <div class="carousel-item active">
+							<img class="d-block w-100" src="{% static './images/items/1.jpg' %}" alt="Second slide">
+						 </div> 
+						 <div class="carousel-item">
+							<img class="d-block w-100" src="{% static './images/items/2.jpg' %}" alt="Second slide">
+						  </div>
+					  
+						  <div class="carousel-item">
+							<img class="d-block w-100" src="{% static './images/items/3.jpg' %}" alt="Third slide">
+						  </div> 
+						</div>
+					  </div>
 					</div>
-				</Link>
+				</a>
 			</div>
 		<!-- </div> -->
 		<!-- <div class="mainGrid"> -->
 			<div class="subHor">
-				<Link href="/products">
+				<a href="store/category/women/">
 					<div class="homeCol" id="pink">
 						<img id="women" alt="women's collection" src="{%static 'illustrations/women.svg'%}" />
 						<p class="thinMedium">WOMEN&rsquo;S<br />COLLECTION</p>
 					</div>
-				</Link>
-				<Link href="/products">
+				</a>
+				<a href="store/category/men/">
 					<div class="homeCol" id="menBlue">
 						<img id="men" alt="men's collection" src="{%static 'illustrations/men.svg'%}" />
 						<p class="thinMedium">MEN&rsquo;S<br />COLLECTION</p>
 					</div>
-				</Link>
+				</a>
 			</div>
 			<div class="subVer">
-				<Link href="/products">
+				<a href="store/category/uniforms/">
 					<div class="homeRow" id="red">
 						<img id="design" src="{%static 'illustrations/design.svg'%}"alt='New arrivals Illustration' />
 						<p style="position: absolute" class="lightHuge">
 							NEW ARRIVALS
 						</p>
 					</div>
-				</Link>
-				<Link href="/products">
+				</a>
+				<a href="store/category/stationary/">
 					<div class="homeRow" id="darkPink">
 						<img id="stationary" alt="stationary illustration" src="{%static 'illustrations/pen.svg'%}" />
 						<p class="boldMedium">Stationary</p>
 					</div>
-				</Link>
+				</a>
 			</div>
 		</div>
 	</main>
