@@ -7,9 +7,6 @@ body {
     padding: 0;
     margin: 0;
 }
-a:hover{
-    color: #D81159;
-}
 .subVer>a,
 .subHor>a {
     text-decoration: none;
@@ -19,7 +16,7 @@ a:hover{
 
 .subVer>a:hover,
 .subHor>a:hover {
-    color: #fff;
+    color: #fff !important;
 }
 
 p {
@@ -114,6 +111,7 @@ p {
 
 #purple {
     background-color: #9448BC;
+    height: 100%;
 }
 
 #orange {
@@ -126,10 +124,12 @@ p {
 
 #menBlue {
     background-color: #645DD7;
+    height: 100%;
 }
 
 #red {
     background-color: #BD1E1E;
+    height: 100%;
 }
 
 #green {
@@ -138,6 +138,7 @@ p {
 
 #darkPink {
     background-color: #D81159;
+    height: 100%;
 }
 
 #design {
@@ -148,7 +149,10 @@ p {
 #discount{
     max-width: 70%;
 }
-
+.store{
+    max-width: 80% !important;
+    margin: 0 auto !important;
+}
 @media (max-width: 1280px) {
     .thinMedium {
         font-size: 1.75rem;
