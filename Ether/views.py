@@ -10,6 +10,7 @@ def home(request):
         'reviews': reviews,
     }
 
+
     return render(request,'home.html', context)
 
 def pp(request):
