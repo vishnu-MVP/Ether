@@ -10,4 +10,4 @@ def home(request):
         'reviews': reviews,
     }
 
-    return render(request,'Home.html', context)
+    return render(request,'home.html', context)
