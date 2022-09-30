@@ -2,7 +2,19 @@
 
 
 {% block content %}
-
+<script>
+	$(document).ready(function () {
+		$('button').click(function() {
+		  checked = $("input[type=checkbox]:checked").length;
+	 
+		  if(!checked) {
+			alert("Please select one checkbox to submit.");
+			return false;
+		  }
+			
+		});
+	});
+	</script>
 <section class="section-content padding-y">
 
 <!-- ============================ COMPONENT REGISTER   ================================= -->
@@ -46,6 +58,10 @@
             {{form.confirm_password}}
 					</div> <!-- form-group end.// -->
 				</div>
+				<div class="form-group">
+					<input type="checkbox" required>By signing up , I accept the <a href="/tandc/">Terms and Conditions</a>  , <a href="/crpolicy/">Refund Policy</a>and <a href="/privacypolicy/">Privacy policy</a> as  mentioned in the website www.ether.org.in .
+				</div>
+
 			    <div class="form-group">
 			        <button type="submit" class="btn btn-primary btn-block"> Register  </button>
 			    </div> <!-- form-group// -->

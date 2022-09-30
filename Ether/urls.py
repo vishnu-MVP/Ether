@@ -29,6 +29,9 @@ urlpatterns = [
    # path('accounts/',include('allauth.urls')),
    path('accounts/', include('accounts.urls')),
        path('orders/', include('orders.urls')),
+       path('privacypolicy/', views.pp , name='privacy'),
+       path('tandc/', views.tc, name='tandc'),
+       path('crpolicy/', views.cr,name='crp'),
        
 
     ]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

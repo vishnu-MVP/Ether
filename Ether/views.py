@@ -10,4 +10,12 @@ def home(request):
         'reviews': reviews,
     }
 
-    return render(request,'Home.html', context)
+    return render(request,'home.html', context)
+
+def pp(request):
+    return render(request,'privacy.html')
+
+def tc(request):
+    return render(request,'tandc.html')
+def cr(request):
+    return render(request,'crp.html')
