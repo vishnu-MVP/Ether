@@ -8,17 +8,19 @@
     <meta http-equiv="cache-control" content="max-age=604800" />
     <link href="{%static 'css/nav.css'%}" rel="stylesheet" type="text/css" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script>
+      function openNav(){
+        console.log("OPEN")
+        document.querySelector(".nav-container").classList.add("active-nav")
+        
+      }
+      function closeNav(){
+        console.log("CLOSE")
+        document.querySelector(".nav-container").classList.remove("active-nav")
+      }
+  </script>
   </head>
   <header class="section-header">
-    <nav class="navbar p-md-0 navbar-expand-sm navbar-light border-bottom">
-      <div class="container">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTop4"
-          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      </div>
-    </nav>
-
     <section class="main-nav">
       <div class="nav-container">
         <div class="nav-holder">
@@ -28,36 +30,41 @@
             </a> <!-- brand-wrap.// -->
           </div>
           <div class="items">
-          <div class="nav-item">
-            <div class="category-wrap dropdown d-inline-block float-right">
-              <button type="button" class="btn-back-green btn dropdown-toggle" data-toggle="dropdown">
-                <i class="fa fa-bars"></i> All category
-              </button>
-              <div class="dropdown-content">
-                <a class="dropdown-item" href="{% url 'store' %}">All Products </a>
-                {% for category in links %}
-                <a class="dropdown-item" href="{{ category.get_url }}">{{ category.category_name }} </a>
-                {% endfor %}
-              </div>
-            </div> <!-- category-wrap.// -->
-          </div> <!-- col.// -->
-          <!-- <a href="{% url 'store' %}" class="btn btn-outline-color">Store</a> -->
-          <div class="navsearch">
-            <form action="{% url 'search' %}" class="search" method='GET'>
-              <div class="input-group">
-                <input type="text" class="form-control"  placeholder="Search" name="keyword">
-                <div class="input-group-append">
-                  <button class="btn btn-search" type="submit">
-                    <i class="fa fa-search"></i>
-                  </button>
+            <div class="nav-item">
+              <div class="category-wrap dropdown d-inline-block float-right">
+                <button type="button" class="btn-back-green btn dropdown-toggle" data-toggle="dropdown">
+                  <i class="fa fa-bars"></i> All category
+                </button>
+                <div class="dropdown-content">
+                  <a class="dropdown-item" href="{% url 'store' %}">All Products </a>
+                  {% for category in links %}
+                  <a class="dropdown-item" href="{{ category.get_url }}">{{ category.category_name }} </a>
+                  {% endfor %}
                 </div>
-              </div>
-            </form> <!-- search-wrap .end// -->
-          </div> <!-- col.// -->
-        </div>
-
-          <div class="col-lg-3 col-sm-6 col-8 order-2 order-lg-3">
-            <div class="d-flex justify-content-end mb-3 mb-lg-0">
+              </div> <!-- category-wrap.// -->
+            </div> <!-- col.// -->
+            <!-- <a href="{% url 'store' %}" class="btn btn-outline-color">Store</a> -->
+            <div class="navsearch">
+              <form action="{% url 'search' %}" class="search" method='GET'>
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="Search" name="keyword">
+                  <div class="input-group-append">
+                    <button class="btn btn-search" type="submit">
+                      <i class="fa fa-search"></i>
+                    </button>
+                  </div>
+                </div>
+              </form> <!-- search-wrap .end// -->
+            </div> <!-- col.// -->
+          </div>
+          <div onclick="closeNav()" class="close">
+            <img src="{% static './images/icons/close.svg' %}" />
+          </div>
+          <div onclick="openNav()" class="menu" >
+            <img src="{% static './images/icons/menu.svg' %}" />
+          </div>
+          <div class="col-lg-3 active-nav col-sm-6 col-8 order-2 order-lg-3">
+            <div class="d-flex nav-inner-items justify-content-end mb-3 mb-lg-0">
               {% if user.id is None %}
               <div class="widget-header">
                 <small class="title text-muted">Welcome guest!</small>
@@ -89,3 +96,15 @@
 
 
   </header> <!-- section-header.// -->
+  <script>
+      function openNav(){
+        console.log("OPEN")
+        document.querySelector(".nav-container").classList.add("active-nav")
+        document.body.style.overflowY = 'hidden';
+      }
+      function closeNav(){
+        console.log("CLOSE")
+        document.querySelector(".nav-container").classList.remove("active-nav")
+        document.body.style.overflowY = 'visible';
+      }
+  </script>
