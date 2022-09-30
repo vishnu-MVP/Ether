@@ -1,6 +1,5 @@
 
 
-
 """
 Django settings for Ether project.
 
@@ -12,10 +11,11 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
+from django.contrib.messages import constants as messages
 from ctypes import cast
 from pathlib import Path
 from telnetlib import AUTHENTICATION
-
+from os import path
 from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -29,7 +29,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG',default=True ,cast=bool)
+DEBUG = config('DEBUG', default=True, cast=bool)
 
 ALLOWED_HOSTS = ['134.209.146.245']
 
@@ -44,14 +44,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
-   
+
     'category',
     'accounts',
     'store',
     'cart',
     'orders',
-    #'admin_honeypot',
-    
+    # 'admin_honeypot',
+
 ]
 
 MIDDLEWARE = [
@@ -90,22 +90,31 @@ TEMPLATES = [
 ]
 
 
-
 WSGI_APPLICATION = 'Ether.wsgi.application'
 
-AUTH_USER_MODEL= 'accounts.Account'
-
+AUTH_USER_MODEL = 'accounts.Account'
 
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+if DEBUG:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'ether_shop',
+            'USER': 'ether_db_user',
+            'PASSWORD': 'ether_password_!@#',
+            'HOST': 'localhost',
+            'PORT': '',
+        }
+    }
 
 
 # Password validation
@@ -143,19 +152,15 @@ USE_TZ = False
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_ROOT=BASE_DIR /'static'
-STATICFILES_DIRS=[
-       'Ether/static',
-]
-
-MEDIA_URL='/media/'
-MEDIA_ROOT=BASE_DIR/'media'
+MEDIA_URL = '/media/'
+STATICFILES_DIRS = ['Ether/static', ]
+STATIC_ROOT = path.join(BASE_DIR, 'static')
+MEDIA_ROOT = path.join(BASE_DIR, 'media')
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-SITE_ID=1
-from django.contrib.messages import constants as messages
+SITE_ID = 1
 MESSAGE_TAGS = {
     messages.ERROR: 'danger',
 }
@@ -163,11 +168,10 @@ MESSAGE_TAGS = {
 
 # SMTP configuration
 EMAIL_HOST = config('EMAIL_HOST')
-EMAIL_PORT = config('EMAIL_PORT',cast=int)
+EMAIL_PORT = config('EMAIL_PORT', cast=int)
 EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
-EMAIL_USE_TLS = config('EMAIL_USE_TLS',cast=bool)
+EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)
 
-RAZORPAY_API_KEY=config('RAZORPAY_API_KEY')
-RAZORPAY_API_SECRET_KEY=config('RAZORPAY_API_SECRET_KEY')
-
+RAZORPAY_API_KEY = config('RAZORPAY_API_KEY')
+RAZORPAY_API_SECRET_KEY = config('RAZORPAY_API_SECRET_KEY')
